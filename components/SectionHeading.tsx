@@ -1,0 +1,3 @@
+export function SectionHeading({ index, eyebrow, title, description, light = false }: { index: string; eyebrow: string; title: string; description?: string; light?: boolean }) {
+  return <header className={`grid gap-6 border-t pt-7 md:grid-cols-[160px_1fr] ${light ? 'border-[#0c1821]/15' : 'border-white/12'}`}><p className={`font-mono text-[11px] uppercase tracking-[.18em] ${light ? 'text-[#826c2f]' : 'text-[#d9bd6a]'}`}>{index} / {eyebrow}</p><div><h2 className="max-w-4xl text-4xl font-medium tracking-[-.045em] sm:text-5xl">{title}</h2>{description && <p className={`mt-5 max-w-2xl leading-7 ${light ? 'text-[#596871]' : 'text-[#9eabb3]'}`}>{description}</p>}</div></header>;
+}
