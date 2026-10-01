@@ -20,6 +20,29 @@ body {
 ::selection { background: #c9a84c; color: #071018; }
 a, button { -webkit-tap-highlight-color: transparent; }
 :focus-visible { outline: 2px solid #e3c669; outline-offset: 4px; }
+[id] { scroll-margin-top: 100px; }
+button, summary { -webkit-tap-highlight-color: transparent; }
+button { cursor: pointer; }
+.section-spacing { padding-block: clamp(4.5rem, 8vw, 7rem); }
+.eyebrow { font-family: var(--font-geist-mono), monospace; font-size: .75rem; letter-spacing: .14em; text-transform: uppercase; }
+.hero-glow { background: radial-gradient(ellipse at 75% 35%, rgba(201,168,76,.09), transparent 55%); }
+.action-button { display: inline-flex; min-height: 46px; align-items: center; justify-content: center; gap: .6rem; border: 1px solid #ffffff30; padding: .75rem 1.1rem; border-radius: .5rem; font-size: .875rem; font-weight: 500; transition: border-color .2s, background .2s, transform .2s; }
+.action-button:hover { border-color: #d9bd6a; transform: translateY(-2px); }
+.action-primary { background: #d8bb61; color: #071018; border-color: #d8bb61; }
+.action-primary:hover { background: #ead17d; }
+.topic-tag { border: 1px solid #ffffff24; border-radius: .35rem; padding: .35rem .65rem; font-family: var(--font-geist-mono), monospace; font-size: .75rem; color: #aebfc9; }
+.project-card { transition: border-color .25s, box-shadow .25s; }
+.project-card:hover { border-color: #927b37; box-shadow: 0 10px 35px #0710180a; }
+.experience-row { transition: background .25s; }
+.experience-row:target { background: #d9bd6a08; }
+.earlier-work summary::marker { color: #d9bd6a; }
+.skip-link { position: fixed; z-index: 200; top: 1rem; left: 1rem; transform: translateY(-180%); background: #d8bb61; color: #071018; padding: .8rem 1rem; border-radius: .4rem; }
+.skip-link:focus { transform: translateY(0); }
+.poster-dialog::backdrop { background: #02070bed; backdrop-filter: blur(8px); }
+.poster-dialog { color: #f4f1e8; }
+@media (prefers-reduced-motion: reduce) {
+  .action-button:hover { transform: none; }
+}
 .site-grid { background-image: linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px); background-size: 42px 42px; }
 .section-shell { width: min(1180px, calc(100% - 40px)); margin-inline: auto; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; } }

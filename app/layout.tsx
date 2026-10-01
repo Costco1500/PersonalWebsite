@@ -18,7 +18,7 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? (deploymentUrl ? `https://${
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: 'Alexander Wang | Machine Learning & AI Research',
-  description: 'Research portfolio of Alexander Wang, a Mathematics and Computing student at Georgia Tech working across machine learning, scientific AI, natural language processing, computer vision, engineering, and environmental modeling.',
+  description: 'Alexander Wang studies Computer Science and Mathematics at Georgia Tech. Explore his work in Transformer research, environmental forecasting, audio machine learning, and iOS development.',
   icons: { icon: '/favicon.svg' },
   openGraph: {
     title: 'Alexander Wang | Machine Learning & AI Research',
