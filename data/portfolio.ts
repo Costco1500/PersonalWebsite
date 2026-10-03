@@ -4,6 +4,7 @@ export type Poster = {
   institution: string;
   area: string;
   image: string;
+  pdf: string;
   width: number;
   height: number;
 };
@@ -22,9 +23,9 @@ export type ResearchExperience = {
 };
 
 export const posters: Poster[] = [
-  { id: 'lake-munson', title: 'Spatiotemporal Forecasting of Chlorophyll-a in an Extreme Drawdown Lake', institution: 'Florida State University', area: 'Scientific ML · Environmental Modeling', image: '/images/research/lake-munson-lstm-pinn.png', width: 483, height: 362 },
-  { id: 'quanteval', title: 'QuantEval: Automated Quantitative Evaluation of NSF Proposals', institution: 'National High Magnetic Field Laboratory', area: 'NLP · Scientific Review', image: '/images/research/quanteval-maglab.png', width: 480, height: 384 },
-  { id: 'fault-detection', title: 'Incorporating AI into In-Situ Process Monitoring for Fault Detection', institution: 'FAMU-FSU College of Engineering', area: 'AI for Engineering · Manufacturing', image: '/images/research/additive-manufacturing-fault-detection.png', width: 504, height: 336 },
+  { id: 'lake-munson', title: 'Machine Learning–Based Forecasting of Chlorophyll-a in Lake Munson Under Extreme Drawdown Conditions Using Gradient Boosting Regression', institution: 'Florida State University', area: 'Gradient Boosting · Water Quality', image: '/images/research/lake-munson-gradient-boosting-preview.webp', pdf: '/posters/lake-munson-gradient-boosting.pdf', width: 1479, height: 2000 },
+  { id: 'quanteval', title: 'QuantEval: Automated Quantitative Evaluation of NSF Proposals', institution: 'National High Magnetic Field Laboratory', area: 'NLP · Scientific Review', image: '/images/research/quanteval-preview.webp', pdf: '/posters/quanteval.pdf', width: 2000, height: 1600 },
+  { id: 'fault-detection', title: 'Incorporating AI into In-Situ Process Monitoring for Fault Detection', institution: 'FAMU-FSU College of Engineering', area: 'AI for Engineering · Manufacturing', image: '/images/research/ai-fault-detection-preview.webp', pdf: '/posters/ai-fault-detection.pdf', width: 2000, height: 1334 },
 ];
 
 export const researchExperiences: ResearchExperience[] = [
@@ -83,12 +84,26 @@ export const earlierExperiences: ResearchExperience[] = [
 ];
 
 export const featuredResearch = [
-  { title: 'Generalization in water-quality forecasting', institution: 'Florida State University · Ye Lab', year: '2025—2026', posterId: 'lake-munson', description: 'From 1.04M+ source records to 1,012 station-date samples and 43 predictors. Random, temporal, and spatial validation test different dimensions of model generalization. The associated poster documents earlier Lake Munson research.', tags: ['XGBoost', 'Random Forest', 'LSTM', 'Leakage Control', 'Validation'] },
+  { title: 'Gradient boosting for Lake Munson water quality', institution: 'Florida State University · Ye Lab', year: '2025—2026', posterId: 'lake-munson', description: 'Gradient boosting regression models chlorophyll-a during extreme drawdown conditions using Lake Munson water-quality observations from 2020–2025. The poster presents five-fold cross-validation, feature importance, and the challenges of sparse, irregular sampling. Related work across 11 Leon County lakes is available as a preprint.', tags: ['Gradient Boosting', 'Chlorophyll-a', 'Water Quality', 'Cross-Validation'], href: 'https://www.preprints.org/manuscript/202609.1068/v1' },
   { title: 'QuantEval: Automated Quantitative Evaluation of NSF Proposals', institution: 'National High Magnetic Field Laboratory', year: '2024—2026', posterId: 'quanteval', description: 'SciBERT fine-tuned on 1,056 annotated proposals achieved approximately 95% field-extraction accuracy. Source-linked LLM feedback connected recommendations to evidence for 100+ reviewers.', tags: ['NLP', 'SciBERT', 'LLMs', 'Information Extraction', 'Scientific Review'] },
   { title: 'AI-Based In-Situ Process Monitoring for Fault Detection', institution: 'FAMU-FSU College of Engineering', year: '2022—2024', posterId: 'fault-detection', description: 'Research applying machine learning and acoustic-signal analysis to identify faults during additive manufacturing.', tags: ['Machine Learning', 'Deep Learning', 'Signal Processing', 'Manufacturing', 'Computer Vision'] },
 ];
 
-export const publications = [
+type Publication = {
+  authors: string;
+  highlight: string;
+  authorship: string;
+  title: string;
+  venue: string;
+  year: string;
+  doi?: string;
+  href: string;
+  preprint?: boolean;
+  posted?: string;
+};
+
+export const publications: Publication[] = [
+  { authors: 'Alexander Wang and Ming Ye', highlight: 'Alexander Wang', authorship: 'First author', title: 'Evaluating Three Machine Learning Methods for Simulating Chlorophyll-a in Data-Scarce Lakes of Leon County, Florida', venue: 'Preprints.org', year: '2026', href: 'https://www.preprints.org/manuscript/202609.1068/v1', preprint: true, posted: '14 September 2026 · Version 1' },
   { authors: 'H. Bsrat, A. Wang, and H. Chi', highlight: 'A. Wang', authorship: 'Co-author', title: 'Harnessing Quantum Machine Learning to Forecast Human Movement Patterns During Natural Disasters.', venue: 'IEEE INTCEC', year: '2025', doi: '10.1109/INTCEC65580.2025.11256138', href: 'https://ieeexplore.ieee.org/document/11256138' },
   { authors: 'Alexander Wang et al.', highlight: 'Alexander Wang', authorship: 'First author', title: 'Enhancing 3D Printing Infill Quality through Advanced Machine Learning.', venue: 'IEEE ECAI', year: '2024', doi: '10.1109/ECAI61503.2024.10607535', href: 'https://ieeexplore.ieee.org/document/10607535/' },
 ];
