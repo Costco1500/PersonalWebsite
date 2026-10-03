@@ -4,7 +4,7 @@ import { Menu, X } from 'lucide-react';
 import { motion, useScroll, useReducedMotion } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
 
-const links = [['Research', '#research'], ['Experience', '#experience'], ['Publications', '#publications'], ['Projects', '#projects'], ['About', '#about'], ['Contact', '#contact']];
+const links = [['About', '#about'], ['Research', '#research'], ['Projects', '#projects'], ['Interests', '#interests'], ['Contact', '#contact']];
 
 export function Navbar() {
   const [open, setOpen] = useState(false);
@@ -37,14 +37,14 @@ export function Navbar() {
 
   return <>
     <a href="#experience" className="skip-link">Skip to experience</a>
-    <header ref={header} className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-[#071018]/95 backdrop-blur-xl">
+    <header ref={header} className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-[#102d22]/95 backdrop-blur-xl">
       <nav aria-label="Primary navigation" className="section-shell flex h-20 items-center justify-between gap-5">
-        <a href="#top" onClick={() => setOpen(false)} className="flex shrink-0 items-center gap-3 text-sm font-semibold"><span className="grid size-9 place-items-center rounded-sm border border-[#c9a84c]/70 font-mono text-xs text-[#e3c669]">AW</span><span>Alexander Wang</span></a>
-        <div className="hidden items-center gap-6 lg:flex">{links.map(([label, href]) => <a key={href} href={href} aria-current={active === href ? 'location' : undefined} className={`relative py-7 text-sm transition-colors hover:text-[#e3c669] ${active === href ? 'text-[#e3c669] after:absolute after:inset-x-0 after:bottom-1 after:h-px after:bg-[#e3c669]' : 'text-[#aab7c1]'}`}>{label}</a>)}</div>
+        <a href="#top" onClick={() => setOpen(false)} aria-label="Alexander Wang — back to top" className="site-brand"><span className="brand-mark">AW</span><span>Court <i>&amp;</i> Iron<span className="brand-caption">ALEXANDER WANG</span></span></a>
+        <div className="hidden items-center gap-6 lg:flex">{links.map(([label, href]) => <a key={href} href={href} aria-current={active === href ? 'location' : undefined} className={`relative py-7 text-sm transition-colors hover:text-[#e5f077] ${active === href ? 'text-[#e5f077] after:absolute after:inset-x-0 after:bottom-1 after:h-px after:bg-[#e5f077]' : 'text-[#b5c2b3]'}`}>{label}</a>)}</div>
         <button ref={menuButton} type="button" onClick={() => setOpen(!open)} className="grid size-11 place-items-center rounded-md border border-white/20 lg:hidden" aria-expanded={open} aria-controls="mobile-menu" aria-label={open ? 'Close navigation' : 'Open navigation'}>{open ? <X size={20} /> : <Menu size={20} />}</button>
       </nav>
-      {open && <div id="mobile-menu" className="border-t border-white/10 bg-[#071018] px-5 py-4 lg:hidden">{links.map(([label, href]) => <a key={href} href={href} onClick={() => setOpen(false)} className="block rounded-md px-3 py-3 text-base text-[#d8dde0] hover:bg-white/5">{label}</a>)}</div>}
-      {!reduce && <motion.div aria-hidden="true" style={{ scaleX: scrollYProgress, transformOrigin: 'left' }} className="absolute inset-x-0 bottom-0 h-px bg-[#d9bd6a]" />}
+      {open && <div id="mobile-menu" className="border-t border-white/10 bg-[#102d22] px-5 py-4 lg:hidden">{links.map(([label, href]) => <a key={href} href={href} onClick={() => setOpen(false)} className="block rounded-md px-3 py-3 text-base text-[#d8dde0] hover:bg-white/5">{label}</a>)}</div>}
+      {!reduce && <motion.div aria-hidden="true" style={{ scaleX: scrollYProgress, transformOrigin: 'left' }} className="absolute inset-x-0 bottom-0 h-px bg-[#dcea62]" />}
     </header>
   </>;
 }

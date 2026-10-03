@@ -17,7 +17,7 @@ export function ResearchExplorer() {
   const Icon = study.icon;
 
   return <div className="research-console overflow-hidden rounded-2xl border border-white/15 bg-[#0c1924]/95 shadow-2xl">
-    <div className="flex items-center justify-between border-b border-white/10 px-6 py-5"><p className="eyebrow text-[#9eaeb9]">Research explorer</p><span className="font-mono text-xs text-[#d9bd6a]">0{active + 1} / 03</span></div>
+    <div className="flex items-center justify-between border-b border-white/10 px-6 py-5"><p className="eyebrow text-[#9eaeb9]">Research explorer</p><span className="font-mono text-xs text-[#dcea62]">0{active + 1} / 03</span></div>
     <div role="tablist" aria-label="Explore research areas" className="grid grid-cols-3 gap-1 border-b border-white/10 p-3">
       {studies.map((item, index) => <button key={item.id} id={`study-tab-${item.id}`} role="tab" type="button" aria-selected={active === index} aria-controls={`study-panel-${item.id}`} tabIndex={active === index ? 0 : -1} onClick={() => setActive(index)} onKeyDown={event => {
         let next = index;
@@ -27,20 +27,20 @@ export function ResearchExplorer() {
         else if (event.key === 'End') next = studies.length - 1;
         else return;
         event.preventDefault(); setActive(next); document.getElementById(`study-tab-${studies[next].id}`)?.focus();
-      }} className={`rounded-lg px-2 py-3 text-sm font-medium transition-colors ${active === index ? 'bg-[#d8bb61] text-[#071018]' : 'text-[#aab7c1] hover:bg-white/5 hover:text-white'}`}>{item.label}</button>)}
+      }} className={`rounded-lg px-2 py-3 text-sm font-medium transition-colors ${active === index ? 'bg-[#dcea62] text-[#102d22]' : 'text-[#b5c2b3] hover:bg-white/5 hover:text-white'}`}>{item.label}</button>)}
     </div>
     <AnimatePresence mode="wait" initial={false}>
       <motion.div key={study.id} role="tabpanel" id={`study-panel-${study.id}`} aria-labelledby={`study-tab-${study.id}`} tabIndex={0} initial={reduce ? false : { opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} transition={{ duration: reduce ? 0 : .18 }} className="min-h-[490px] p-6 sm:p-8">
-        <div className="flex items-center gap-3 text-[#d9bd6a]"><Icon size={23} strokeWidth={1.5} /><span className="text-xs leading-5 text-[#aab7c1]">{study.subtitle}</span></div>
+        <div className="flex items-center gap-3 text-[#dcea62]"><Icon size={23} strokeWidth={1.5} /><span className="text-xs leading-5 text-[#b5c2b3]">{study.subtitle}</span></div>
         <h2 className="mt-5 text-2xl font-medium tracking-tight">{study.title}</h2>
-        <p className="mt-7 font-mono text-[clamp(1.8rem,4vw,2.65rem)] tracking-tight text-[#e3c669]">{study.metric}</p>
-        <p className="mt-1 text-sm text-[#aab7c1]">{study.metricLabel}</p>
+        <p className="mt-7 font-mono text-[clamp(1.8rem,4vw,2.65rem)] tracking-tight text-[#e5f077]">{study.metric}</p>
+        <p className="mt-1 text-sm text-[#b5c2b3]">{study.metricLabel}</p>
         <div className="my-7" aria-label={study.bars ? 'Comparison of reported results' : 'Validation approaches'}>
-          {study.bars ? <div className="space-y-4">{study.bars.map((bar, index) => <div key={bar.label}><div className="mb-2 flex justify-between text-xs text-[#b7c5ce]"><span>{bar.label}</span><span className="font-mono">{bar.value}</span></div><div className="h-1.5 overflow-hidden rounded-full bg-white/8"><motion.div className={`h-full rounded-full ${index ? 'bg-[#e3c669]' : 'bg-[#718998]'}`} initial={reduce ? false : { width: 0 }} animate={{ width: `${bar.width}%` }} transition={{ duration: reduce ? 0 : .65, delay: reduce ? 0 : index * .1 }} /></div></div>)}</div> : <div className="grid grid-cols-3 gap-2">{study.steps?.map((step, index) => <div className="rounded-lg border border-white/12 p-3 text-center" key={step}><span className="font-mono text-xs text-[#d9bd6a]">0{index + 1}</span><p className="mt-2 text-xs text-[#c6d0d6]">{step}</p></div>)}</div>}
+          {study.bars ? <div className="space-y-4">{study.bars.map((bar, index) => <div key={bar.label}><div className="mb-2 flex justify-between text-xs text-[#b7c5ce]"><span>{bar.label}</span><span className="font-mono">{bar.value}</span></div><div className="h-1.5 overflow-hidden rounded-full bg-white/8"><motion.div className={`h-full rounded-full ${index ? 'bg-[#e5f077]' : 'bg-[#718998]'}`} initial={reduce ? false : { width: 0 }} animate={{ width: `${bar.width}%` }} transition={{ duration: reduce ? 0 : .65, delay: reduce ? 0 : index * .1 }} /></div></div>)}</div> : <div className="grid grid-cols-3 gap-2">{study.steps?.map((step, index) => <div className="rounded-lg border border-white/12 p-3 text-center" key={step}><span className="font-mono text-xs text-[#dcea62]">0{index + 1}</span><p className="mt-2 text-xs text-[#c6d0d6]">{step}</p></div>)}</div>}
         </div>
         <p className="text-sm leading-6 text-[#acbbc5]">{study.detail}</p>
         <p className="mt-4 text-xs leading-5 text-[#8fa1ad]">{study.note}</p>
-        <a href={study.href} className="mt-6 inline-block border-b border-[#d9bd6a]/50 pb-1 text-sm font-medium text-[#e3c669]">Explore this experience</a>
+        <a href={study.href} className="mt-6 inline-block border-b border-[#dcea62]/50 pb-1 text-sm font-medium text-[#e5f077]">Explore this experience</a>
       </motion.div>
     </AnimatePresence>
   </div>;
